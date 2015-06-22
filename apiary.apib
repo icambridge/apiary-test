@@ -1,19 +1,7 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://api-st.foodpanda.in/
 
 # Foodpanda Public Mobile API
-
-
-
-# Mobile API v5 Root [/]
-
-This resource does not have any attributes. Instead it offers the initial
-API affordances in the form of the links in the JSON body.
-
-It is recommend to follow the “url” link values,
-[Link](https://tools.ietf.org/html/rfc5988) or Location headers where
-applicable to retrieve resources. Instead of constructing your own URLs,
-to keep your client decoupled from implementation details.
 
 # Group SMS Verification
 
@@ -27,11 +15,12 @@ to keep your client decoupled from implementation details.
 + Request
     + Headers
 
-            Authorization: AccessToken
+            Authorization: RefreshToken
 
 + Response 200 (application/json)
     + Body
 
             {
+                "status_code": 200,
                 "data": null
             }
