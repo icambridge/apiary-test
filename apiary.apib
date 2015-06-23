@@ -5,12 +5,12 @@ HOST: http://api-st.foodpanda.in/
 
 # Group SMS Verification
 
-## Confirm customer [/api/v5/customers/confirm?language_id=]
+## Send verification-code via SMS [/api/v5/customers/confirm?language_id={language_id}]
 
 + Parameters
-    + language_id (optional, number, `1`) ... ID of the language used for SMS-template. If empty, the user's default language is used.
+    + language_id: `1` (number, optional) - ID of the language used for SMS-template. If empty, the user's default language is used.
 
-### Send confirmation code via SMS [POST]
+### Send verification-code via SMS [POST]
 
 + Request
     + Headers
@@ -24,3 +24,16 @@ HOST: http://api-st.foodpanda.in/
                 "status_code": 200,
                 "data": null
             }
+
+## Update mobile phone number for customer [/api/v5/customers/mobilephone/]
+            
+### Update mobile phone number [PUT]
+
++ Request (application/json)
+    + Parameters
+        + mobile_phone: `250 123456789` (string, required) - Mobile phone number
+    + Body
+    
+            { "mobile_phone": "250 123456789" }
+    
++ Response 200 (application/json)
