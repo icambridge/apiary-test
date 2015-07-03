@@ -3,21 +3,61 @@ HOST: http://api-st.foodpanda.in/
 
 # Foodpanda Public Mobile API
 
+<!--
+## API Blueprint
++ [Previous: Grouping Resources](04.%20Grouping%20Resources.md)
++ [This: Raw API Blueprint](https://path/to/this)
++ [Next: Requests](06.%20Requests.md)
+-->
+
 # Group SMS Verification
 
-## Send verification-code via SMS [/api/v5/customers/confirm?language_id={language_id}]
+This API describes endpoints related to Customer verification via SMS.
+
+## Customer confirmation [/api/v5/customers/confirmation{?language_id}]
 
 + Parameters
-    + language_id: `1` (number, optional) - ID of the language used for SMS-template. If empty, the user's default language is used.
+
+    + language_id: 1 (number, optional) - ID of the language used for SMS-template. If empty, the user's default language is used.
+
+### Retrieve confirmation status [GET]
+
+Checks whether the currently logged in customer is already verified or not
+
++ Request
+
+    + Headers
+    
+            Authorization: AccessToken
+            X-FP-API-KEY: ?
+    
++ Response 200 (application/json)
+
+        {
+            "is_verified": true,
+            "mobile_phone": "722123456"
+        }
+    
++ Response 400 (application/json)
+
+        {
+            "is_verified": true,
+            "mobile_phone": "722123456"
+        }
 
 ### Send verification-code via SMS [POST]
 
-+ Request
-    + Headers
+Sends a new verification code to the user's mobile phone.
 
-            Authorization: RefreshToken
++ Request
+
+    + Headers
+    
+            Authorization: AccessToken
+            X-FP-API-KEY: ?
 
 + Response 200 (application/json)
+
     + Body
 
             {
@@ -26,14 +66,32 @@ HOST: http://api-st.foodpanda.in/
             }
 
 ## Update mobile phone number for customer [/api/v5/customers/mobilephone/]
-            
+
+Updates the mobile phone number for the currently logged in user
+
 ### Update mobile phone number [PUT]
 
 + Request (application/json)
-    + Parameters
-        + mobile_phone: `250 123456789` (string, required) - Mobile phone number
-    + Body
+
+    + Headers
     
-            { "mobile_phone": "250 123456789" }
+            Authorization: AccessToken
+            X-FP-API-KEY: ?
+
+    + Body
+
+            {
+                "mobile_phone": "250 123456789"
+            }
     
 + Response 200 (application/json)
+
+    + Attributes (User Model)
+
+# Data Structures
+
+## User Model (object)
+
++ first_name (string) - User's first name
++ last_name (string) - User's last name
++ email (string) - User's email address
