@@ -116,32 +116,31 @@ Fetches all informations about the order for the provided order code
                     "code": 2,
                     "message": "Awaiting confirmation from vendor",
                     "type": "temporary",
-                    "changedAt": {
+                    "changed_at": {
                         "date": "2015-07-17 12:33:07",
                         "timezone_type": 3,
                         "timezone": "Asia\/Kolkata"
                     }
                 }],
+                "order_review": {
+                    "is_reviewable": true,
+                    "review": {
+                        "id": 150163,
+                        "vendor_id": "10835",
+                        "customer_id": "2540716",
+                        "customer_name": "Saurav",
+                        "comment": null,
+                        "rating": "2",
+                        "date": "2015-06-16",
+                        "rating_type": null,
+                        "review_external_url": null,
+                        "external_review_openrice_score": null,
+                        "title": null
+                    }
+                } 
                 "order_address": "Flat No. \/ House No.:  jmeter\njmeter\n10 th cross\nBangalore",
                 "order_id": 4103524,
                 "order_code": "v6wr-l7nk",
-                "order_is_reviewable": false,
-                "order_review" : {
-                    "id": 150163,
-                    "vendor_id": "10835",
-                    "customer_id": "2540716",
-                    "customer_name": "Saurav",
-                    "comment": null,
-                    "rating": "2",
-                    "date": "2015-06-16",
-                    "rating_type": null,
-                    "review_external_url": null,
-                    "external_review_openrice_score": null,
-                    "title": null
-                },
-                "is_order_reapeatable": true
-                "is_vendor_open": true
-                "error_message": null
                 "ordered_at": {
                     "date": "2015-07-17 12:33:05",
                     "timezone_type": 3,
@@ -152,7 +151,9 @@ Fetches all informations about the order for the provided order code
                     "timezone_type": 3,
                     "timezone": "Asia\/Kolkata"
                 },
-                "cart_calculation": {
+                "order_cart": {
+                    "order_is_reapeatable": true,
+                    "order_is_repeatable_message": "<!-- formerly error_message -->",
                     "subtotal": 4740,
                     "subtotal_before_discount": 4740,
                     "subtotal_after_product_discount": 4740,
@@ -171,6 +172,8 @@ Fetches all informations about the order for the provided order code
                     "service_tax_total": 265.44,
                     "service_fee_total": 0,
                     "vendorCart": [{
+                        "vendor_id": 10835,
+                        "is_open": true,
                         "subtotal": 4740,
                         "subtotal_before_discount": 4740,
                         "subtotal_after_product_discount": 4740,
@@ -188,7 +191,6 @@ Fetches all informations about the order for the provided order code
                         "delivery_fee_discount": 0,
                         "service_tax_total": 265.44,
                         "service_fee_total": 0,
-                        "vendor_id": 10835,
                         "products": [{
                             "product_variation_id": 3980666,
                             "name": "*Margherita Pizza",
