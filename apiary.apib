@@ -85,6 +85,139 @@ Updates the mobile phone number for the currently logged in user
 
     + Attributes (User Model)
 
+# Group Order
+
+Endpoints related to a customer's order
+
+## Order information [/api/v5/orders/{order_code}/info{?cart_calculation}]
+
++ Parameters
+
+    + order_code: "v6wr-l7nk" (string, required) - Order code to fetch info for
+    + cart_calculation: true (boolean, optional) - Whether to add reorder information to response
+
+### Retrieve order information [GET]
+
+Fetches all informations about the order for the provided order code
+
++ Request
+
+    + Headers
+    
+            Authorization: AccessToken
+            X-FP-API-KEY: iphone
+            
++ Response 200 (application/json)
+
+        {
+            "status_code": 200,
+            "data": {
+                "status_history": [{
+                    "code": 2,
+                    "message": "Awaiting confirmation from vendor",
+                    "type": "temporary",
+                    "changedAt": {
+                        "date": "2015-07-17 12:33:07",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Kolkata"
+                    }
+                }],
+                "order_address": "Flat No. \/ House No.:  jmeter\njmeter\n10 th cross\nBangalore",
+                "order_id": 4103524,
+                "order_code": "v6wr-l7nk",
+                "order_is_reviewable": false,
+                "order_review" : {
+                    "id": 150163,
+                    "vendor_id": "10835",
+                    "customer_id": "2540716",
+                    "customer_name": "Saurav",
+                    "comment": null,
+                    "rating": "2",
+                    "date": "2015-06-16",
+                    "rating_type": null,
+                    "review_external_url": null,
+                    "external_review_openrice_score": null,
+                    "title": null
+                },
+                "is_order_reapeatable": true
+                "is_vendor_open": true
+                "error_message": null
+                "ordered_at": {
+                    "date": "2015-07-17 12:33:05",
+                    "timezone_type": 3,
+                    "timezone": "Asia\/Kolkata"
+                },
+                "confirmed_delivery_time": {
+                    "date": "2015-07-17 13:33:05",
+                    "timezone_type": 3,
+                    "timezone": "Asia\/Kolkata"
+                },
+                "cart_calculation": {
+                    "subtotal": 4740,
+                    "subtotal_before_discount": 4740,
+                    "subtotal_after_product_discount": 4740,
+                    "subtotal_after_discount": 4740,
+                    "subtotal_after_discount_and_delivery_fee": 4740,
+                    "subtotal_after_discount_and_service_fee": 4740,
+                    "subtotal_after_discount_and_delivery_fee_and_service_fee": 4740,
+                    "total_value": 5731.23,
+                    "group_joiner_total": 5731.23,
+                    "container_charge": 0,
+                    "delivery_fee": 0,
+                    "vat_total": 725.79,
+                    "voucher_total": 0,
+                    "discount_total": 0,
+                    "delivery_fee_discount": 0,
+                    "service_tax_total": 265.44,
+                    "service_fee_total": 0,
+                    "vendorCart": [{
+                        "subtotal": 4740,
+                        "subtotal_before_discount": 4740,
+                        "subtotal_after_product_discount": 4740,
+                        "subtotal_after_discount": 4740,
+                        "subtotal_after_discount_and_delivery_fee": 4740,
+                        "subtotal_after_discount_and_service_fee": 4740,
+                        "subtotal_after_discount_and_delivery_fee_and_service_fee": 4740,
+                        "total_value": 5731.23,
+                        "group_joiner_total": 5731.23,
+                        "container_charge": 0,
+                        "delivery_fee": 0,
+                        "vat_total": 725.79,
+                        "voucher_total": 0,
+                        "discount_total": 0,
+                        "delivery_fee_discount": 0,
+                        "service_tax_total": 265.44,
+                        "service_fee_total": 0,
+                        "vendor_id": 10835,
+                        "products": [{
+                            "product_variation_id": 3980666,
+                            "name": "*Margherita Pizza",
+                            "variation_name": "",
+                            "total_price_before_discount": 4740,
+                            "total_price": 4740,
+                            "quantity": 12,
+                            "toppings": [],
+                            "choices": [{
+                                "id": 327473,
+                                "name": "Papa's Original Crust",
+                                "description": null,
+                                "is_available": true
+                            }],
+                            "group_order_user_name": null,
+                            "group_order_user_code": null,
+                            "is_available": true
+                        }],
+                        "minimum_order_amount": 250,
+                        "minimum_order_amount_difference": 0,
+                        "discount_text": null
+                    }],
+                    "voucher": []
+                },
+                "internal_status_code": null,
+                "sms_verification_needed": false
+            }
+        }
+
 # Data Structures
 
 ## User Model (object)
